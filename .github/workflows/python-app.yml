@@ -37,3 +37,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+    - name: Set up Secret
+      run: echo "MY_SECRET=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
+
+    - name: Run Python Script
+      run: python test_actions/example.py

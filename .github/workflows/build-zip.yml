@@ -1,0 +1,30 @@
+name: Build and Upload ZIP Artifact
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Create a ZIP file
+      - name: Create ZIP file
+        run: |
+          mkdir -p subfolder
+          cd my_app
+          zip -r ../subfolder/my_artifact.zip *
+
+      # Upload the ZIP file as an artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact-zip
+          path: subfolder/my_artifact.zip
+

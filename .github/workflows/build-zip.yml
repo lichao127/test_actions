@@ -12,19 +12,19 @@ jobs:
     steps:
       # Checkout the repository code
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Create a ZIP file
       - name: Create ZIP file
         run: |
           mkdir -p subfolder
           cd my_app
-          zip -r ../subfolder/my_artifact.zip *
+          zip -r ../subfolder/my_app.zip *
 
       # Upload the ZIP file as an artifact
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: artifact-zip
-          path: subfolder/my_artifact.zip
+          path: subfolder/my_app.zip
 

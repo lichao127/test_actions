@@ -28,3 +28,5 @@ jobs:
           name: artifact-zip
           path: subfolder/my_app.zip
 
+    - name: Output artifact ID
+      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
